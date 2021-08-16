@@ -1,0 +1,41 @@
+{
+  "name": "fingerpose-gestures",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/mAminP/fingerpose-gestures#readme",
+  "bugs": {
+    "url": "https://github.com/mAminP/fingerpose-gestures/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mAminP/fingerpose-gestures.git"
+  },
+  "license": "ISC",
+  "author": "M Amin Pasban",
+  "main": "dist/index.js",
+  "typings": "./index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "siroc build",
+    "dev": "nuxt demo"
+  },
+  "dependencies": {
+    "fingerpose": "0.0.2"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.7",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/vuetify": "^1.12.1",
+    "@tensorflow-models/handpose": "0.0.7",
+    "@tensorflow/tfjs": "^3.8.0",
+    "@tensorflow/tfjs-backend-webgl": "^3.8.0",
+    "@types/node": "latest",
+    "nuxt": "^2.15.8",
+    "nuxt-property-decorator": "^2.9.1",
+    "typescript": "^4.3.5",
+    "vue-web-cam": "^1.9.0"
+  }
+}
