@@ -1,17 +1,28 @@
 {
   "name": "fingerpose-gestures",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "private": false,
+  "description": "fingerpose-gestures is a library built on top of Fingerpose classifier for hand landmarks detected by TensorFlow.js' handpose model. It can detect hand gestures inside a webcam source picture.",
+  "keywords": [
+    "handpose gestures",
+    "fingerpose gestures",
+    "fingerpose custom gestures",
+    "ai gestures",
+    "emoji gestures",
+    "finger gestures"
+  ],
   "homepage": "https://github.com/mAminP/fingerpose-gestures#readme",
   "bugs": {
     "url": "https://github.com/mAminP/fingerpose-gestures/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mAminP/fingerpose-gestures.git"
-  },
+  "repository": "mAminP/fingerpose-gestures",
   "license": "ISC",
   "author": "M Amin Pasban",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js"
+    }
+  },
   "main": "dist/index.js",
   "typings": "./index.d.ts",
   "files": [
@@ -20,6 +31,7 @@
   ],
   "scripts": {
     "build": "siroc build",
+    "publish": "npm publish",
     "dev": "nuxt demo"
   },
   "dependencies": {
