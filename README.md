@@ -18,7 +18,7 @@ Gesture detection works in 3 steps:
 Install the module via NPM:
 
 ```sh
-npm i --save fingerpose
+npm i --save fingerpose-gestures
 ```
 
 ## Usage
