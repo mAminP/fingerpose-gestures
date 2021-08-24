@@ -82,8 +82,14 @@ The result is an object containing possible gestures and their confidence, for e
 
 ## Gestures
 
-| name           | emoji | path                               |
-| --             | --    | --                                 |
-| thumbs_down    | 👎    | `fpg.Gestures.thumbsDownGesture`   |
-| finger_splayed | 🖐    | `fpg.Gestures.fingerSplayedGesture`|
-| raised_hand    | ✋    | `fpg.Gestures.raisedHandGesture`   |
+| name            | emoji | path                                |
+| --------------- | ----- | ----------------------------------- |
+| thumbs_up       | 👍     | `fpg.Gestures.thumbsUpGesture`      |
+| victory         | ✌     | `fpg.Gestures.victoryGesture`       |
+| thumbs_down     | 👎     | `fpg.Gestures.thumbsDownGesture`    |
+| finger_splayed  | 🖐     | `fpg.Gestures.fingerSplayedGesture` |
+| raised_hand     | ✋     | `fpg.Gestures.raisedHandGesture`    |
+| pinching        | 🤏     | `fpg.Gestures.pinchingGesture`      |
+| ok              | 👌     | `fpg.Gestures.okGesture`            |
+<!-- | ***up coming*** | --    | --                                  | -->
+<!-- | love_you        | 🤟     | `fpg.Gestures.loveYouGesture`       | -->

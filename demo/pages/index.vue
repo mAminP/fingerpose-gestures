@@ -1,18 +1,31 @@
 <template>
   <v-row no-gutters class="fill-height" align="center" justify="center">
-    <v-card rounded="lg" class="overflow-hidden pa-0" elevation="15">
-      <client-only>
-        <vue-web-cam
-          id="webcam"
-          width="auto"
-          height="auto"
-          ref="video"
-          @error="onError"
-          :selectFirstDevice="true"
-        />
-      </client-only>
-      <canvas id="canvas" ref="canvas"></canvas>
-    </v-card>
+    <v-col>
+      <v-row dense v-for="(arr, index) in poseData" :key="index">
+        <v-col v-for="(s, i) in arr" :key="i"><span v-text="s"></span></v-col>
+      </v-row>
+      <v-divider class="my-3" />
+      <v-row>
+        <v-col v-for="(value, name) in bestMatch" :key="name"
+          >{{ name }} : {{ value }}</v-col
+        >
+      </v-row>
+    </v-col>
+
+    <v-col
+      ><v-card rounded="lg" class="overflow-hidden pa-0" elevation="15">
+        <client-only>
+          <vue-web-cam
+            id="webcam"
+            width="auto"
+            height="auto"
+            ref="video"
+            @error="onError"
+            :selectFirstDevice="true"
+          />
+        </client-only>
+        <canvas id="canvas" ref="canvas"></canvas> </v-card
+    ></v-col>
   </v-row>
 </template>
 
@@ -23,11 +36,15 @@ import "@tensorflow/tfjs-backend-webgl";
 //@ts-ignore
 import * as fp from "fingerpose";
 import { Vue, Component, Ref } from "nuxt-property-decorator";
-import * as ap from '../../dist/index'
+import * as ap from "../../dist/index";
+
+
 @Component({})
 export default class Index extends Vue {
-  private _interval!: NodeJS.Timer ;
+  poseData: Array<Array<string>> = [];
+  bestMatch: any = {};
 
+  private _interval!: NodeJS.Timer;
   public fingerJoints = {
     palm: [0, 1, 5, 9, 13, 17, 0],
     thumb: [1, 2, 3, 4],
@@ -49,9 +66,7 @@ export default class Index extends Vue {
   }
   public async findHand(model: handpose.HandPose) {
     const video = document.querySelector("video");
-    const canvas = document.getElementById(
-      "canvas"
-    ) as HTMLCanvasElement;
+    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
     if (video && video.readyState === 4) {
       const { videoHeight, videoWidth } = video;
 
@@ -129,16 +144,24 @@ export default class Index extends Vue {
   public estimatGesture(predictions: handpose.AnnotatedPrediction[]) {
     if (predictions.length > 0) {
       const GE = new fp.GestureEstimator([
-        fp.Gestures.VictoryGesture,
-        fp.Gestures.ThumbsUpGesture,
         ap.Gestures.raisedHandGesture,
         ap.Gestures.fingerSplayedGesture,
         ap.Gestures.thumbsDownGesture,
+        ap.Gestures.victoryGesture,
+        ap.Gestures.thumbsUpGesture,
+        ap.Gestures.pinchingGesture,
+        ap.Gestures.okGesture,
+
       ]);
-      const { gestures } = GE.estimate(predictions[0].landmarks, 8);
-      if (gestures.length > 0) {
-            console.log(ap.Utils.bestMatch(gestures));
+      const gestures = GE.estimate(predictions[0].landmarks, 8);
+      this.poseData = gestures.poseData;
+      if (gestures.gestures.length > 0) {
+        this.bestMatch = ap.Utils.bestMatch(gestures.gestures);
+      } else {
+        this.bestMatch = {};
       }
+    } else {
+      this.poseData = [];
     }
   }
 }
