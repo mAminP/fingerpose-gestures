@@ -91,5 +91,7 @@ The result is an object containing possible gestures and their confidence, for e
 | raised_hand     | ✋     | `fpg.Gestures.raisedHandGesture`    |
 | pinching        | 🤏     | `fpg.Gestures.pinchingGesture`      |
 | ok              | 👌     | `fpg.Gestures.okGesture`            |
+| fist            | ✊     | `fpg.Gestures.fistGesture`            |
 <!-- | ***up coming*** | --    | --                                  | -->
 <!-- | love_you        | 🤟     | `fpg.Gestures.loveYouGesture`       | -->
+<!-- | oncoming_fist        | 👊     | `fpg.Gestures.oncomingFistGesture`       | -->

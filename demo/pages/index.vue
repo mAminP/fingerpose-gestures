@@ -78,7 +78,7 @@ export default class Index extends Vue {
       canvas.width = videoWidth;
       canvas.height = videoHeight;
 
-      const predictions = await model.estimateHands(video);
+      const predictions = await model.estimateHands(video,true);
       this.estimatGesture(predictions);
       const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -92,7 +92,7 @@ export default class Index extends Vue {
       setTimeout(() => {
         this._interval = setInterval(() => {
           this.findHand(model);
-        }, 50);
+        }, 10);
       }, 500);
     } catch (error) {
       console.error({ error });
@@ -151,7 +151,8 @@ export default class Index extends Vue {
         ap.Gestures.thumbsUpGesture,
         ap.Gestures.pinchingGesture,
         ap.Gestures.okGesture,
-
+        ap.Gestures.oncomingFistGesture,
+        ap.Gestures.fistGesture,
       ]);
       const gestures = GE.estimate(predictions[0].landmarks, 8);
       this.poseData = gestures.poseData;
@@ -168,6 +169,10 @@ export default class Index extends Vue {
 </script>
 
 <style>
+video{
+   -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
 canvas {
   position: absolute;
   top: 0;

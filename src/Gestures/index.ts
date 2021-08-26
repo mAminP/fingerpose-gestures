@@ -4,7 +4,9 @@ import thumbsDownGesture from './thumbsDownGesture';
 import victoryGesture from './victoryGesture';
 import thumbsUpGesture from './thumbsUpGesture';
 import pinchingGesture from './pinchingGesture';
+import fistGesture from './fistGesture';
 import okGesture from './okGesture';
+// import oncomingFistGesture from './oncomingFistGesture';
 export {
         raisedHandGesture,
         fingerSplayedGesture,
@@ -12,5 +14,7 @@ export {
         victoryGesture,
         thumbsUpGesture,
         pinchingGesture,
-        okGesture
+        okGesture,
+        // oncomingFistGesture,
+        fistGesture
 }

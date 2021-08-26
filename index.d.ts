@@ -19,6 +19,10 @@ declare const victoryDescription: IGestureDescription;
 
 declare const thumbsUpDescription: IGestureDescription;
 
+declare const Gesture$3: IGestureDescription;
+
+declare const Gesture$2: IGestureDescription;
+
 declare const Gesture$1: IGestureDescription;
 
 declare const Gesture: IGestureDescription;
@@ -33,8 +37,10 @@ declare namespace index$1 {
     index$1_thumbsDownGesture as thumbsDownGesture,
     victoryDescription as victoryGesture,
     thumbsUpDescription as thumbsUpGesture,
-    Gesture$1 as pinchingGesture,
-    Gesture as okGesture,
+    Gesture$3 as pinchingGesture,
+    Gesture$1 as okGesture,
+    Gesture as oncomingFistGesture,
+    Gesture$2 as fistGesture,
   };
 }
 
