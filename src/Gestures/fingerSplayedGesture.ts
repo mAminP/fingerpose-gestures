@@ -35,8 +35,8 @@ fingerSplayedGesture.addDirection(Finger.Ring, FingerDirection.VerticalUp, 0.9);
 fingerSplayedGesture.addDirection(Finger.Ring, FingerDirection.DiagonalUpRight, 0.75);
 
 // Pinky
-fingerSplayedGesture.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.75);
-fingerSplayedGesture.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.9);
+fingerSplayedGesture.addDirection(Finger.Pinky, FingerDirection.VerticalUp, 0.75);
+fingerSplayedGesture.addDirection(Finger.Pinky, FingerDirection.DiagonalUpRight, 0.9);
 
 
 
